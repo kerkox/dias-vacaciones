@@ -37,8 +37,6 @@ export default function Home() {
     return fecha.format('DD/MMMM/YYYY')
   }
 
-
-
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.grid}>

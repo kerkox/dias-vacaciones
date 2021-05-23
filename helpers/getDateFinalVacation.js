@@ -24,10 +24,8 @@ const daysBetween = (fechaInicial, fechaFinal) => {
 
 const isWorkDay = (festivos, date) => {
     let day = Number(date.format('d'))
-    switch (day) {
-        case 0:
-        case 6:
-            return false;
+    if(day == 0 || day == 6) {
+        return false;
     }
     return !isHoliday(festivos, date);
 }

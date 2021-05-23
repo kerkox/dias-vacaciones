@@ -7,12 +7,12 @@ export default function Home() {
 
   let fecha_inicial;
 
-  const [inputValue, setInputValue] = useState('')
+  const [dateInputValue, setDateInputValue] = useState('')
   const [fechaFinal, setFechaFinal] = useState('')
   const [dias, setDias] = useState(0);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+  const handleDateInputChange = (e) => {
+    setDateInputValue(e.target.value);
   }
 
   const handleDiasVacaciones = (e) => {
@@ -21,9 +21,9 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim().length > 2) {
-      console.log("inputValue", inputValue)
-      let dateValue = inputValue.split('-');
+    if (dateInputValue.trim().length > 2) {
+      console.log("inputValue", dateInputValue);
+      let dateValue = dateInputValue.split("-");
       let date = new Date(dateValue[0], Number(dateValue[1]) - 1, dateValue[2]);
       console.log("date", date)
       console.log("date String", date.toString())
@@ -41,22 +41,42 @@ export default function Home() {
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.grid}>
         <div className={styles.card}>
-          <TextField id="fecha_inicial" label="Fecha Inicio Vacaciones" type="date" variant="filled" onChange={handleInputChange} name="fecha_inicial" value=""/>
+          <TextField
+            id="fecha_inicial"
+            label="Fecha Inicio Vacaciones"
+            type="date"
+            variant="filled"
+            onChange={handleDateInputChange}
+            name="fecha_inicial"
+            value={dateInputValue}
+          />
         </div>
         <div className={styles.card}>
-          <TextField id="dias_vacaciones" type="number" label="Cant. Dias Vacaciones" variant="filled" onChange={handleDiasVacaciones} name="dias_vacaciones" value="15" />
+          <TextField
+            id="dias_vacaciones"
+            type="number"
+            label="Cant. Dias Vacaciones"
+            variant="filled"
+            onChange={handleDiasVacaciones}
+            name="dias_vacaciones"
+            value="15"
+          />
         </div>
         <br />
-        <Button variant="contained" type="submit" color="primary" >Calcular</Button>
+        <Button variant="contained" type="submit" color="primary">
+          Calcular
+        </Button>
         <br />
       </form>
       <div>
-        <p>Dias de vacaciones: <strong>{dias}</strong></p>
-        <p>Fecha final de vacaciones: <strong>{fechaFinal}</strong></p>
-
+        <p>
+          Dias de vacaciones: <strong>{dias}</strong>
+        </p>
+        <p>
+          Fecha final de vacaciones: <strong>{fechaFinal}</strong>
+        </p>
       </div>
-
     </div>
-  )
+  );
 }
 

@@ -7,7 +7,7 @@ module.exports = calcularFecha = (fechaBaseInput, cantidadDiasVacaciones = 15) =
     let year = fechaBase.year();
     const festivos = Holidays.getColombiaHolidaysByYear(year);
 
-    for (let x = 0; x < cantidadDiasVacaciones; x++) {
+    for (let x = 1; x < cantidadDiasVacaciones; x++) {
         fechaBase = fechaBase.add(1, 'd');
         while (!isWorkDay(festivos, fechaBase)) {
             fechaBase = fechaBase.add(1, 'd');

@@ -41,7 +41,7 @@ export default function Home() {
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.grid}>
         <div className={styles.card}>
-          <TextField id="fecha_inicial" label="Fecha Inicio Vacaciones" type="date" variant="filled" onChange={handleInputChange} name="fecha_inicial" />
+          <TextField id="fecha_inicial" label="Fecha Inicio Vacaciones" type="date" variant="filled" onChange={handleInputChange} name="fecha_inicial" value=""/>
         </div>
         <div className={styles.card}>
           <TextField id="dias_vacaciones" type="number" label="Cant. Dias Vacaciones" variant="filled" onChange={handleDiasVacaciones} name="dias_vacaciones" value="15" />

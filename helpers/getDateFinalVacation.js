@@ -14,6 +14,7 @@ module.exports = calcularFecha = (fechaBaseInput, cantidadDiasVacaciones = 15) =
         }
     }
     let dias =  daysBetween(moment(fechaBaseInput), fechaBase);
+    dias += 1; // se suma 1 para tener en cuenta el dia inicial
     return {fecha: fechaBase, dias };
 }
 
